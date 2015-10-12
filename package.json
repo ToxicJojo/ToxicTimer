@@ -1,0 +1,14 @@
+{
+  "name": "toxictimer",
+  "version": "0.0.1",
+  "description": "A online speedrun timer.",
+  "author": "Johannes Thiel <Johannes.Thiel@uni-duesseldorf.de>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ToxicJojo/ToxicTimer.git"
+  },
+  "dependencies": {
+    "express": "4.13.x"
+  }
+}
