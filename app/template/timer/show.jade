@@ -1,5 +1,17 @@
 extends ../layout/application
 
 block content
-
-  p Lore Ipsum
+  .row
+    .col-lg-4
+      .panel.panel-default
+          .panel-heading
+            h3.panel-title Run settings
+          .panel-body
+            input#fileInput(type='file', style='visibility: hidden;')
+            form(role='form')
+              .form-group
+                label(for='gameSelect') Select Game
+                include gameSelect
+              .form-group
+                label(for='runSelect') Select Run
+                include runSelect
