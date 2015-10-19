@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "express": "4.13.x",
-    "jade": "1.11.x"
+    "jade": "1.11.x",
+    "mongoose": "4.1.11"
   },
   "devDependencies": {
     "grunt": "0.4.5",

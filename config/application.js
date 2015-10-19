@@ -20,11 +20,15 @@ global.App = {
   // Starts the application. It will listen on the port specified in App.port.
   start: function() {
     if (!this.started) {
-      this.started = true;
-      // Listen on the given port.
-      App.app.listen(App.port);
+      // Open the mongodb connection.
+      App.require('../config/database')(process.env.DATABASE_URL || 'mongodb://localhost/toxictimer', function() {
+        // Listen on the given port.
+        App.app.listen(App.port);
 
-      console.log('Running ToxicTimer version ' + App.version + ' on port ' + App.port + ' in ' + App.env + ' mode');
+        console.log('Running ToxicTimer version ' + App.version + ' on port ' + App.port + ' in ' + App.env + ' mode');
+
+        this.started = true;
+      });
     } else {
       console.warn('Tried to start the application even though it was already running.')
     }
@@ -47,6 +51,6 @@ var router = require('./router');
 App.app.use(router);
 
 // If none of the routes get hit send a 404 response.
-App.app.use(function(request, response){
+App.app.use(function(request, response) {
   response.render('404');
 });
