@@ -1,2 +1,4 @@
 select#runSelect.form-control
   option New Run
+  for run in timer.runs
+    option(value='#{run.name}')= run.name

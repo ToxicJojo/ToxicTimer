@@ -7,7 +7,8 @@ var show = function(request, response) {
     var params = {
       page_title: 'ToxicTimer - Timer',
       timer: {
-        games: games
+        games: games,
+        runs: []
       }
     };
 
