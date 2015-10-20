@@ -21,7 +21,7 @@ global.App = {
   start: function() {
     if (!this.started) {
       // Open the mongodb connection.
-      App.require('../config/database')(process.env.DATABASE_URL || 'mongodb://localhost/toxictimer', function() {
+      App.require('../config/database')(process.env.DATABASE_URL || 'mongodb://localhost/ToxicTimer', function() {
         // Listen on the given port.
         App.app.listen(App.port);
 

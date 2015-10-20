@@ -1,9 +1,18 @@
-var show = function(request, response) {
-  var params = {
-    page_title: 'ToxicTimer - Timer'
-  };
+var Game = App.require('model/game');
 
-  App.require('view/timer').show(request, response, params);
+var show = function(request, response) {
+  // Get all the games in the database.
+  Game.getAll(function(error, games) {
+
+    var params = {
+      page_title: 'ToxicTimer - Timer',
+      timer: {
+        games: games
+      }
+    };
+
+    App.require('view/timer').show(request, response, params);
+  });
 };
 
 module.exports.show = show;

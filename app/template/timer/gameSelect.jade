@@ -1,2 +1,4 @@
 select#gameSelect.form-control
   option New Game
+  for game in timer.games
+    option(value='#{game.abbreviation}')= game.name
