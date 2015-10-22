@@ -2,10 +2,10 @@ var Run = App.require('model/run');
 
 var show = function(request, response) {
   // The abbreviation of the game the runs should be loaded for.
-  var gameAbbrv = request.params.gameAbbrv;
-  
+  var gameId = request.params.gameId;
+
   // Get all the runs for the specific game.
-  Run.getRunsForGame(gameAbbrv, function(error, runs) {
+  Run.getRunsForGame(gameId, function(error, runs) {
 
     var params = {
       timer: {

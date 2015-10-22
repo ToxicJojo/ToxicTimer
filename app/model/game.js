@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 
 // The Schema representing a game.
-// A game has a name and a abbreviation.
+// A game has a name and a gameId.
 var gameSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
     unique: true
   },
-  abbreviation: {
+  gameId: {
     type: String,
     required: true,
     unique: true

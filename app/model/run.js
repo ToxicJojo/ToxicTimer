@@ -1,23 +1,23 @@
 var mongoose = require('mongoose');
 
 // The schema representing a run.
-// A run has a name, a game it belongs to(the abbreviation) and its splits.
+// A run has a name, a game it belongs to(the gameId) and its splits.
 var runSchema = mongoose.Schema({
   name: {
     type: String,
     required: true
   },
-  game: {
+  gameId: {
     type: String,
     required: true
   },
   splits: [String]
 });
 
-// Returns all runs for the given name.
-runSchema.statics.getRunsForGame = function(gameAbbrv, callback) {
+// Returns all runs for the given gameId.
+runSchema.statics.getRunsForGame = function(gameId, callback) {
   this.find({
-    gameAbbrv: gameAbbrv
+    gameId: gameId
   }, callback);
 };
 
