@@ -15,5 +15,11 @@ block content
               .form-group
                 label(for='runSelect') Select Run
                 include runSelect
+                
+    .col-lg-8
+      .panel.panel-default
+        .panel-heading#runName Timer
+        div#splits
+          include splits
 
   script(src='/javascript/timerInit.js')              

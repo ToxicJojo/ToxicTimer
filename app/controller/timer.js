@@ -8,7 +8,8 @@ var show = function(request, response) {
       page_title: 'ToxicTimer - Timer',
       timer: {
         games: games,
-        runs: []
+        runs: [],
+        splits: []
       }
     };
 

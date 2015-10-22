@@ -1,0 +1,14 @@
+table.table.table-borderd.table-hover
+          thead
+            tr
+              th Name
+              th Best
+              th Live
+              th +/-
+          tbody#splits
+            for split, i in timer.splits
+              tr( id='split#{i}')
+                td( id='name#{i}')= split
+                td( id='best#{i}') ???
+                td( id='live#{i}') -
+                td( id='difference#{i}') -
