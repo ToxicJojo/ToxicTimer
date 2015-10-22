@@ -11,4 +11,14 @@ $(document).ready(function() {
       $('#runSelect').html(html);
     });
   });
+
+  $('#runSelect').bind('change', function() {
+    var gameId = $('#gameSelect').val();
+    var runName = this.value;
+
+    // Load the splits from the server and display them.
+    templates.getSplits(gameId, runName, function(html) {
+      $('#splits').html(html);
+    });
+  });
 });

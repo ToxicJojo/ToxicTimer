@@ -21,6 +21,14 @@ runSchema.statics.getRunsForGame = function(gameId, callback) {
   }, callback);
 };
 
+// Returns the run with the given gameId and the specified name.
+runSchema.statics.getRun = function(gameId, runName, callback) {
+  this.findOne({
+    name: runName,
+    gameId: gameId
+  }, callback);
+}
+
 // Compile the schema into a model.
 var RunModel = mongoose.model('Run', runSchema);
 
