@@ -1,4 +1,7 @@
 select#gameSelect.form-control
   option New Game
   for game in timer.games
-    option(value='#{game.gameId}')= game.name
+    if timer.selectedGame == game.gameId
+      option(value='#{game.gameId}' selected='selected')= game.name
+    else
+      option(value='#{game.gameId}')= game.name

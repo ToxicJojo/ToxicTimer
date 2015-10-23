@@ -9,6 +9,7 @@ $(document).ready(function() {
     // and display it.
     templates.getRunSelect(gameId, function(html) {
       $('#runSelect').html(html);
+      window.history.pushState({}, '', '/timer/' + gameId);
     });
   });
 

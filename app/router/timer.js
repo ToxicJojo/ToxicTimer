@@ -3,5 +3,6 @@ var express = require('express'),
   router = express.Router();
 
 router.get('/', controller.show);
+router.get('/:gameId', controller.showGame);
 
 module.exports = router;
