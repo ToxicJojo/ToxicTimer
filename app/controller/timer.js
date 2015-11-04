@@ -40,23 +40,23 @@ var showRun = function(request, response) {
 
           App.require('view/timer').show(request, response, params);
         } else {
-          // TODO Display an error message on the page.
           var params = createParams(games, gameId, runs, []);
+          // Add the error notification to the parameter which will be displayed.
+          params.notification = {
+            type: 'danger',
+            message: 'The run with the name ' + runName + ' was not found'
+          };
 
           App.require('view/timer').show(request, response, params);
         }
-
       });
     });
   });
 };
 
 
-
-
-
-// Games is be tha games displayed in the select.
-// gameId is be the id of the preselected game.
+// Games are the games displayed in the select.
+// gameId is the id of the preselected game.
 // runs is the array containig the runs that should be displayed.
 // splits are the splits that will be displayed.
 var createParams = function(games, gameId, runs, splits, runName) {
