@@ -20,6 +20,7 @@ $(document).ready(function() {
     // Load the splits from the server and display them.
     templates.getSplits(gameId, runName, function(html) {
       $('#splits').html(html);
+      window.history.pushState({}, '', '/timer/' + gameId + '/' + runName);
     });
   });
 });

@@ -4,5 +4,6 @@ var express = require('express'),
 
 router.get('/', controller.show);
 router.get('/:gameId', controller.showGame);
+router.get('/:gameId/:runName', controller.showRun);
 
 module.exports = router;

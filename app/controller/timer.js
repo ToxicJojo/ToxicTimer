@@ -24,21 +24,51 @@ var showGame = function(request, response) {
       App.require('view/timer').show(request, response, params);
     });
   });
-}
+};
+
+var showRun = function(request, response) {
+  Game.getAll(function(error, games) {
+    // Get the gameId from the request parameters.
+    var gameId = request.params.gameId;
+    Run.getRunsForGame(gameId, function(error, runs) {
+      var runName = request.params.runName;
+      Run.getRun(gameId, runName, function(error, run) {
+
+        // Check if we found a run with the given name.
+        if(run) {
+          var params = createParams(games, gameId, runs, run.splits, run.name);
+
+          App.require('view/timer').show(request, response, params);
+        } else {
+          // TODO Display an error message on the page.
+          var params = createParams(games, gameId, runs, []);
+
+          App.require('view/timer').show(request, response, params);
+        }
+
+      });
+    });
+  });
+};
+
+
+
+
 
 // Games is be tha games displayed in the select.
 // gameId is be the id of the preselected game.
 // runs is the array containig the runs that should be displayed.
 // splits are the splits that will be displayed.
-var createParams = function(games, gameId, runs, splits) {
+var createParams = function(games, gameId, runs, splits, runName) {
   // Create the params that will be passed to the view.
   var params = {
     page_title: 'ToxicTimer - Timer',
     timer: {
       games: games,
       selectedGame: gameId,
+      selectedRun: runName,
       runs: runs,
-      splits: []
+      splits: splits
     }
   };
 
@@ -47,3 +77,4 @@ var createParams = function(games, gameId, runs, splits) {
 
 module.exports.show = show;
 module.exports.showGame = showGame;
+module.exports.showRun = showRun;
